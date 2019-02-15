@@ -12,12 +12,12 @@ import numpy as np
 df = pd.read_csv('pbp-2018.csv')
 df = df[df['GameId'] == 2018090900]
 
-
-for index, row in df.iterrows():
-    if 'SeriesFirstDown' == 1:
-        print('yes')
+for index, row in df.iterrows():    
+    if (row['SeriesFirstDown'] == 1):
+        print(row)
     else:
         print('Nothing')
+
 
 #print(row['Down'], row['SeriesFirstDown'])
 
