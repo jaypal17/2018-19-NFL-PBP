@@ -13,19 +13,17 @@ df = pd.read_csv('pbp-2018.csv')
 df = df[df['GameId'] == 2018090900]
 
 for index, row in df.iterrows():    
-    if (row['SeriesFirstDown'] == 1):
-        print(row)
+       if (row['Down'] == 1) & (row['SeriesFirstDown'] == 1):
+            print(row)
     else:
+        #I did this just so I could see only the one series plays
         print('Nothing')
 
 
-#print(row['Down'], row['SeriesFirstDown'])
-
-#osrplay = df[(df['Down'] == 1) & (df['SeriesFirstDown'] == 1) & (df['IsRush'] == 1)]
 
 
 
-
+#Example
 #blah1 = 'dog' + str(1)
 #blah2 = 'dog' + str(2)
 #blah3 = 'dog' + str(3)
