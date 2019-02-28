@@ -11,21 +11,21 @@ all_series_success = []
 all_series_fail = []
 
 # variable for iloc
-end_of_series = 0
+index_set = 0
 
 
 # Go through dataframe by rows
 for index, row in df.iterrows():
     # Checking if it is the end of a series no matter success or not
-    #here ^^^^
+    end_of_series = row ['first_down_rush'] == 1 or row['first_down_pass'] == 1 or row['first_down_penalty'] == 1 or row['fourth_down_converted'] == 1 or row['fourth_down_failed'] == 1 or row['interception'] == 1 or row['safety'] == 1 or row['fumble_lost'] == 1
     #if successful series
     if row['first_down_rush'] == 1 or row['first_down_pass'] == 1 or row['first_down_penalty'] == 1:
             #update end of series to index where series stops
-            all_series_success.append(df.iloc[end_of_series:index + 1])
-            end_of_series = index + 1
+            all_series_success.append(df.iloc[index_set:index + 1])
+            index_set = index + 1
     else:
         # add failed series here
-        row['play_type'] == punt:
+        row['fourth_down_failed'] == 1 or row['interception'] == 1 or row['safety'] == 1 or row['fumble_lost'] == 1
         all_series_fail.append()
 
 down = 1
